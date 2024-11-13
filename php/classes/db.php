@@ -6,7 +6,7 @@
 		
 		public function __construct(){
 			try{
-			$this ->db_conn = new PDO('mysql:host=localhost;dbname=station',"root","p9178");
+			$this ->db_conn = new PDO('mysql:host=localhost;dbname=station',"root","");
 			return $this->db_conn;
 			}
 			catch(PDOException $e){
@@ -158,7 +158,7 @@
 		}
 		
 		public function get_crimes(){
-			$sql = "SELECT Status,Category,Description,Crime_Scene,Suspects FROM crimes ";
+			$sql = "SELECT Status,Category,Description,Crime_Scene,Suspects FROM crimes";
 			$stmt = $this->db_conn->prepare($sql);
 			$stmt->execute();
 			$crimes = $stmt->fetchAll(PDO::FETCH_ASSOC);
